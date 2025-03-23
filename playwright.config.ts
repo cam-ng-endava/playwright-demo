@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { config as baseConfig } from '@wdio/sync';
 
 /**
  * Read environment variables from file.
@@ -11,6 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -78,3 +80,36 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
+
+
+export const config: WebdriverIO.Config = {
+  ...baseConfig,
+  hostname: 'hub.lambdatest.com',
+  port: 80,
+  path: '/wd/hub',
+  user: process.env.LT_USERNAME || 'YOUR_LAMBDATEST_USERNAME',
+  key: process.env.LT_ACCESS_KEY || 'YOUR_LAMBDATEST_ACCESS_KEY',
+  services: ['appium'],
+  capabilities: [{
+    maxInstances: 1,
+    platformName: 'iOS',
+    deviceName: 'iPhone 14', // Specify desired device
+    platformVersion: '16', // Specify iOS version
+    app: 'YOUR_APP_BUNDLE_ID', // e.g., 'com.apple.mobilesafari' or your app's bundle ID
+    automationName: 'XCUITest',
+    isRealMobile: true,
+    build: 'iOS Appium Test',
+    name: 'Test Native iOS App',
+    video: true,
+    visual: true,
+    network: true,
+    console: true
+  }],
+  logLevel: 'info',
+  framework: 'mocha',
+  reporters: ['spec'],
+  mochaOpts: {
+    ui: 'bdd',
+    timeout: 60000
+  }
+};

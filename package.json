@@ -17,6 +17,10 @@
   "homepage": "https://github.com/cam-ng-endava/playwright-demo#readme",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.13.11"
+    "@types/node": "^22.13.11",
+    "@wdio/appium-service": "^9.12.1",
+    "@wdio/cli": "^9.12.1",
+    "@wdio/mocha-framework": "^9.12.1",
+    "webdriverio": "^9.12.1"
   }
 }
