@@ -1,0 +1,22 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "just test",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://cam-ng-endava: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@github.com/cam-ng-endava/playwright-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cam-ng-endava/playwright-demo/issues"
+  },
+  "homepage": "https://github.com/cam-ng-endava/playwright-demo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.11"
+  }
+}
